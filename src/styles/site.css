@@ -1,0 +1,32 @@
+﻿:root {
+  --sl-color-accent-low: #153b32;
+  --sl-color-accent: #7bd6b5;
+  --sl-color-accent-high: #b8efdc;
+  --sl-content-width: 46rem;
+}
+:root[data-theme='light'] {
+  --sl-color-accent-low: #e6f3ed;
+  --sl-color-accent: #236b58;
+  --sl-color-accent-high: #174b3d;
+  --sl-color-bg: #fdfcf9;
+  --sl-color-bg-nav: #f8f7f3;
+  --sl-color-bg-sidebar: #f8f7f3;
+}
+.sl-markdown-content { line-height: 1.8; }
+.sl-markdown-content h2 { padding-top: .5rem; }
+.sl-markdown-content blockquote {
+  border-inline-start: 3px solid var(--sl-color-accent);
+  border-radius: 0 .4rem .4rem 0;
+  padding: .85rem 1.1rem;
+  background: var(--sl-color-accent-low);
+  color: var(--sl-color-text);
+  font-size: .95rem;
+}
+.sl-markdown-content strong { color: var(--sl-color-white); }
+.sl-markdown-content table { width: 100%; font-size: .95rem; }
+.hero { padding-block: clamp(2rem, 7vw, 5rem); }
+.hero h1 { max-width: 13ch; }
+@media (max-width: 50rem) {
+  .sl-markdown-content { line-height: 1.75; }
+  .sl-markdown-content :is(th, td) { padding: .6rem; }
+}
