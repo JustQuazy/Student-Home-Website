@@ -22,7 +22,3 @@ No public release is approved. The preview binds to loopback, pages carry `noind
 ## Heading and section styles
 
 Article H2 headings mark major sections (28-34 px), H3 headings mark subsections (22-24 px), and H4 headings mark focused topics (18-20 px). Sizes scale with the viewport using rem-based CSS. Major sections get a theme-aware divider, 3-4 rem of space before it, and 1.5-2 rem after it. Subsection/topic gaps are smaller, and consecutive headings stay grouped. These shared article styles also apply to the homepage; navigation headings and the hero retain their own presentation. Keep semantic heading levels and existing anchors when editing content.
-
-## Homepage artwork
-
-`src/components/HomeHero.astro` wraps the standard Starlight hero with the selected warm portrait artwork. Mobile displays the whole facade below the text; desktop crops the artwork to the right with an ivory fade behind the copy. The hero keeps dark text and a green button on its light canvas in either theme. The image is decorative (`alt=""`), loaded eagerly, and built as responsive WebP variants (approximately 34/78/127 kB). Original artwork is under `src/assets/`; the unselected alternative is retained there but excluded from the build. No input reference screenshots are exported.
