@@ -1,0 +1,78 @@
+---
+import { Image } from 'astro:assets';
+import DefaultHero from '@astrojs/starlight/components/Hero.astro';
+import background from '../assets/student-home-background-mobile.png';
+---
+
+<section class="home-hero">
+  <Image
+    src={background}
+    alt=""
+    aria-hidden="true"
+    class="home-hero-art"
+    format="webp"
+    quality={80}
+    widths={[480, 768, 1024]}
+    sizes="(min-width: 50rem) 60vw, 100vw"
+    loading="eager"
+    fetchpriority="high"
+  />
+  <div class="home-hero-copy"><DefaultHero /></div>
+</section>
+
+<style>
+  .home-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border-radius: 1rem;
+    background: #fdfcf9;
+    min-height: clamp(36rem, 158vw, 46rem);
+    color: #202a26;
+  }
+  .home-hero-art {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+    z-index: -2;
+  }
+  .home-hero-copy { padding: 2rem 1rem 0; }
+  .home-hero-copy :global(.hero) {
+    display: block;
+    padding: 0;
+  }
+  .home-hero-copy :global(h1) { color: #202a26; }
+  .home-hero-copy :global(.tagline) { color: #39473f; }
+  .home-hero-copy :global(.actions a) {
+    background: #236b58;
+    color: #fff;
+    border-color: #236b58;
+    min-height: 2.75rem;
+  }
+  .home-hero-copy :global(.actions a:hover) { background: #174b3d; }
+  .home-hero-copy :global(a:focus-visible) {
+    outline: 3px solid #174b3d;
+    outline-offset: 4px;
+  }
+  @media (min-width: 50rem) {
+    .home-hero { min-height: 35rem; }
+    .home-hero-art { inset-inline-start: 40%; width: 60%; object-fit: cover; }
+    .home-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, #fdfcf9 36%, rgba(253,252,249,.94) 43%, rgba(253,252,249,0) 63%);
+      z-index: -1;
+    }
+    .home-hero-copy { width: 55%; padding: 4.5rem 2.5rem; }
+    .home-hero-copy :global(h1) { font-size: clamp(2.5rem, 4.5vw, 4rem); }
+  }
+  @media (max-width: 24rem) {
+    .home-hero-copy { padding-inline: .75rem; }
+    .home-hero-copy :global(h1) { font-size: 1.875rem; }
+    .home-hero-copy :global(.actions a) { padding-inline: 1rem; font-size: .9rem; }
+  }
+</style>
